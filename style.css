@@ -8,13 +8,12 @@ body {
 }
 
 a {
-    color: rgb(180, 180, 180);
+    color: rgb(235, 235, 235);
 }
 
 #page-header {
     margin-top: 50px;
-    max-height: 800px;
-    margin-bottom: 750px;
+    margin-bottom: 900px;
 }
 
 @font-face {
@@ -24,13 +23,13 @@ a {
 
 .name-title {
     text-align: center;
-    color: antiquewhite;
+    color: rgb(255, 255, 255);
     font-weight: normal;
-    margin-bottom: 15px;
+   
 }
 
 .title-container {
-    margin: 0;
+    margin: 0%;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -49,9 +48,55 @@ a {
 .nBarLinks {
     padding: 10px;
     text-decoration: none;
-    font-weight: 100;
 }
 
 .standard {
+    background-color: rgb(238, 238, 238);
+}
+
+#bio {
+    margin-left: 20%;
+    margin-right: 20%;
+    color: black;
+    font-size: 20px;
+    padding: 30px;
+}
+
+#skillcontainer {
     background-color: rgb(36, 36, 139);
+    font-size:100%;
+}
+
+#skillcontainer2 {
+    display: flex;
+    justify-content: center;
+    font-size:100%;
+    padding-bottom:20px;
+}
+
+#skillheader {
+    text-align: center;
+    padding-top: 20px;
+    color: rgb(238, 238, 238);
+}
+#skills{
+    margin-top:-22px;
+}
+hr {
+    width: 20%;
+    margin: auto;
+    color: rgb(238, 238, 238);
+}
+#projects{
+    padding-top:15px;
+    margin-top:-22px;
+    text-align:center;
+    color: black;
+}
+.skillcell {
+    color: rgb(238, 238, 238);
+    width: 20%;
+    display: inline-block;
+    text-align: center;
+    font-size:100%; 
 }
