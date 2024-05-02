@@ -1,0 +1,57 @@
+body {
+    font-family: Montserrat;
+    margin: 0px;
+    color: rgb(180, 180, 180);
+    background-image: url("images/background.jpeg");
+    background-attachment: fixed;
+    margin-right: 0px;
+}
+
+a {
+    color: rgb(180, 180, 180);
+}
+
+#page-header {
+    margin-top: 50px;
+    max-height: 800px;
+    margin-bottom: 750px;
+}
+
+@font-face {
+    font-family: Montserrat;
+    src: url(fonts/Montserrat-VariableFont_wght.ttf);
+}
+
+.name-title {
+    text-align: center;
+    color: antiquewhite;
+    font-weight: normal;
+    margin-bottom: 15px;
+}
+
+.title-container {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.nav-bar {
+    text-align: center;
+    font-size: 36px;
+    text-decoration: none;
+    background-color: rgb(36, 36, 139);
+    padding: 10px;
+}
+
+.nBarLinks {
+    padding: 10px;
+    text-decoration: none;
+    font-weight: 100;
+}
+
+.standard {
+    background-color: rgb(36, 36, 139);
+}
