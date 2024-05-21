@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Black Jack</title>
+    <link rel="stylesheet" href="buttongame.css">
+    <!-- <script src="index.js"></script> -->
+    <script src="
+    https://cdn.jsdelivr.net/npm/chart.js">
+    </script>
+</head>
+
+
+<body>
+    <p id="roll">Hello World</p>
+    <button type="button" class="smallbutton" onclick="setAuto()">auto</button>
+    <h2>Highscore: </h2>
+    <h2 id="highscore">0</h2>
+    <button type="button" id="wins" onclick="randint()">0</button> <br>
+    <button type="button" class="smallbutton" onclick="setCalculatedOdds(document.getElementById('highscore').innerText)">Odds</button>
+    <h2>Odds of getting high score:</h2>
+    <h2 id="odds"></h2>
+    <h2>Number of Plays:</h2>
+    <h2 id="playcount">0</h2>
+
+    <canvas id="barChart" width="800" height="200">
+    </canvas>
+
+
+    <script>
+        // Get the 2D rendering context of the canvas
+        let ctx = document
+            .getElementById('barChart')
+            .getContext('2d');
+
+        xlabels = [];
+        for (let i = 1; i <= 100; i++) {
+            xlabels.push(i);
+        }
+        ylabels = [];
+        for (let i = 0; i < 100; i++) {
+            ylabels.push(0);
+        }
+
+
+        //Create a new bar chart
+        let barChart = new Chart(ctx, {
+            // Specify the chart type
+            type: 'bar',
+            // Provide data for the chart
+            data: {
+                // Labels for each segment of the pie
+                labels: xlabels,
+                // Datasets for the chart
+                datasets: [{
+                    data: ylabels,
+                    // Data points for each segment
+                    backgroundColor: 'blue',
+                }]
+            },
+            // Additional options for the chart
+            options: {
+                responsive: true, //It make the chart responsive
+                //This plugin will display Title of chart
+                legend: {
+                    display: false
+                },
+                tooltips: {
+                    enabled: false
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Data'
+                    }
+                }
+            }
+        });
+
+        function updateBarChart(item) {
+            ylabels[xlabels.indexOf(item)] += 1;
+            barChart.data.datasets[0].data = ylabels;
+            barChart.update();
+        }
+        let winstreak = 0;
+        let highscore = 0;
+        let playcount = 0;
+
+        let x = 0;
+        function randint() {
+            x = Math.random() * 100
+            document.getElementById("roll").innerHTML = x;
+            if (x > winstreak) {
+                winstreak++;
+            }
+            else {
+                if (winstreak > highscore) {
+                    highscore = winstreak;
+                }
+                playcount++;
+                updateBarChart(winstreak);
+                winstreak = 0;
+
+            }
+            document.getElementById("wins").innerHTML = winstreak;
+            document.getElementById("highscore").innerHTML = highscore;
+            document.getElementById("playcount").innerHTML = playcount;
+        }
+        let auto = false;
+        function calculateOdds(streak) {
+            if (streak == 0) {
+                return 1 - (streak / 100);
+            }
+            return (1 - (streak / 100)) * calculateOdds(streak - 1);
+
+        }
+        function setAuto() {
+            auto = !auto;
+        }
+        setInterval(function () {
+            if (auto) {
+                randint()
+            }
+        }, 1)
+
+        function setCalculatedOdds(streak) {
+            document.getElementById("odds").innerHTML = calculateOdds(streak) * 100 + "%";
+        }
+
+    </script>
+</body>
+
+</html>

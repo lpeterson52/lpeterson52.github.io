@@ -1,0 +1,25 @@
+body {
+    font-family: Helvetica;
+
+}
+
+button {
+    color: rgb(255, 255, 255);
+    background-color: tomato;
+    border-style: none;
+    font-size: 50px;
+    width: 200px;
+    height: 100px;
+    border-radius: 12px;
+}
+
+.smallbutton {
+    width:50px;
+    height:25px;
+    font-size:15px;
+    margin-top:5px;
+}
+
+button:active {
+    background-color: rgb(175, 69, 50);
+}
