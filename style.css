@@ -99,6 +99,9 @@ a {
 #skills{
     margin-top:-22px;
 }
+.imagelink:hover{
+    opacity:75%;
+}
 hr {
     width: 20%;
     margin: auto;
